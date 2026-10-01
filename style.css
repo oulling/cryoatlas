@@ -22,3 +22,7 @@
 .results-table td strong{font-weight:750}
 .training-table{max-width:760px;min-width:560px;margin-inline:auto}
 .links a,.links span{display:inline-flex;align-items:center;gap:7px}.links svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+body{background:#eef2f6;border-inline:8px solid #34485e;min-height:100vh}main,footer{width:min(1044px,calc(100% - 56px));background:#fff;padding-inline:32px}main{margin-top:24px;border-radius:12px 12px 0 0;box-shadow:0 8px 36px #2433470a}footer{margin-bottom:24px;border-radius:0 0 12px 12px}.hero{padding-top:44px}@media(max-width:700px){body{border-inline-width:4px}main,footer{width:calc(100% - 20px);padding-inline:16px}main{margin-top:12px}footer{margin-bottom:12px}.hero{padding-top:30px}}
+
+body{display:flow-root}

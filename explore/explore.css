@@ -16,3 +16,7 @@ footer{font-size:.9rem;padding-top:12px}.gallery-grid{margin-bottom:20px}
 .benchmark-strip h3{flex:0 0 142px}@media(max-width:1100px){.benchmark-strip h3{flex-basis:100%}}
 
 .benchmark-heading{border-top:1px solid var(--line);padding:16px 18px 4px;text-align:center}.benchmark-heading h3{margin:0;font-size:.95rem}.benchmark-heading+.benchmark-strip{border-top:0}.benchmark-strip h3{text-align:center}#score-method{margin-top:0}.selection>label,aside>h2,aside>label:not(.checkbox){text-align:center}.selection input{text-align:left}.selection select,aside>label select{text-align:center}#emdb-link{display:block;text-align:center;margin-top:10px}.legend{justify-content:center}.about h2{text-align:center}
+
+body{background:#eef2f6;border-inline:8px solid #34485e;min-height:100vh}.page-header,main,footer{width:min(1384px,calc(100% - 48px));background:#fff;padding-inline:28px}.page-header{margin-top:24px;border-radius:12px 12px 0 0}footer{margin-bottom:24px;border-radius:0 0 12px 12px}@media(max-width:540px){body{border-inline-width:4px}.page-header,main,footer{width:calc(100% - 16px);padding-inline:12px}.page-header{margin-top:12px}footer{margin-bottom:12px}}
+
+body{display:flow-root}
