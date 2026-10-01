@@ -1,0 +1,262 @@
+{
+  "entries": [
+    {
+      "id": "EMD-14696",
+      "pdb": "7zf2",
+      "resolution": 3.86,
+      "category": "Nucleic Acid Binding",
+      "poster": "gallery/EMD-14696-morandi5-poster.webp",
+      "video": "gallery/EMD-14696-morandi5.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.1,
+        1.1000000000000003,
+        1.0999999999999999
+      ],
+      "gt_color": "#7d9184",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-36039",
+      "pdb": "8j7f",
+      "resolution": 2.6,
+      "category": "Membrane & Transport",
+      "poster": "gallery/EMD-36039-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-36039-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.0399999618530273,
+        1.0399999618530273,
+        1.0399999618530276
+      ],
+      "gt_color": "#a98280",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-72752",
+      "pdb": "9ybm",
+      "resolution": 2.62,
+      "category": "Enzymes",
+      "poster": "gallery/EMD-72752-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-72752-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.8853332996368408,
+        0.8853332996368408,
+        0.8853332996368408
+      ],
+      "gt_color": "#738c9a",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-35257",
+      "pdb": "8i95",
+      "resolution": 2.88,
+      "category": "Immune System",
+      "poster": "gallery/EMD-35257-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-35257-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.9200000029343828,
+        0.9200000029343824,
+        0.9200000029343824
+      ],
+      "gt_color": "#a7957d",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-36145",
+      "pdb": "8jbg",
+      "resolution": 2.8,
+      "category": "Membrane & Transport",
+      "poster": "gallery/EMD-36145-morandi5-r3-poster.webp",
+      "video": "gallery/EMD-36145-morandi5-r3.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.0700000762939452,
+        1.0700000762939457,
+        1.0700000762939454
+      ],
+      "gt_color": "#8b8098",
+      "playback_rate": 0.8,
+      "density_isovalue_sigma": 3.0
+    },
+    {
+      "id": "EMD-14971",
+      "pdb": "7zub",
+      "resolution": 2.85,
+      "category": "Nucleic Acid Binding",
+      "poster": "gallery/EMD-14971-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-14971-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.0859999656677246,
+        1.0859999656677246,
+        1.0859999656677248
+      ],
+      "gt_color": "#7d9184",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-41153",
+      "pdb": "8tcf",
+      "resolution": 2.9,
+      "category": "Others",
+      "poster": "gallery/EMD-41153-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-41153-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.1220000006935813,
+        1.122000000693581,
+        1.1220000006935815
+      ],
+      "gt_color": "#a98280",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-63381",
+      "pdb": "9ltu",
+      "resolution": 2.44,
+      "category": "Photosynthesis & Electron Transport",
+      "poster": "gallery/EMD-63381-morandi5-r3-poster.webp",
+      "video": "gallery/EMD-63381-morandi5-r3.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.9700000000000001,
+        0.97,
+        0.9700000000000001
+      ],
+      "gt_color": "#738c9a",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-62586",
+      "pdb": "9kv6",
+      "resolution": 2.88,
+      "category": "Signaling & Receptor",
+      "poster": "gallery/EMD-62586-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-62586-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.2940000295639038,
+        1.2940000295639038,
+        1.2940000295639038
+      ],
+      "gt_color": "#a7957d",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-43605",
+      "pdb": "8vwy",
+      "resolution": 2.78,
+      "category": "Structural & Motor",
+      "poster": "gallery/EMD-43605-morandi5-r3-poster.webp",
+      "video": "gallery/EMD-43605-morandi5-r3.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.6529999796549478,
+        0.652999979654948,
+        0.6529999796549478
+      ],
+      "gt_color": "#8b8098",
+      "playback_rate": 0.8,
+      "density_isovalue_sigma": 3.0
+    },
+    {
+      "id": "EMD-60014",
+      "pdb": "8zdv",
+      "resolution": 2.8,
+      "category": "Viral",
+      "poster": "gallery/EMD-60014-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-60014-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.0742000341415405,
+        1.0742000341415405,
+        1.0742000341415405
+      ],
+      "gt_color": "#7d9184",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-75151",
+      "pdb": "10gh",
+      "resolution": 3.06,
+      "category": "Enzymes",
+      "poster": "gallery/EMD-75151-morandi5-r5-poster.webp",
+      "video": "gallery/EMD-75151-morandi5-r5.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.825,
+        0.825,
+        0.825
+      ],
+      "gt_color": "#a98280",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-60591",
+      "pdb": "9ii6",
+      "resolution": 3.27,
+      "category": "Immune System",
+      "poster": "gallery/EMD-60591-morandi5-r5-poster.webp",
+      "video": "gallery/EMD-60591-morandi5-r5.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        1.1000000000000003,
+        1.1,
+        1.0999999999999999
+      ],
+      "gt_color": "#738c9a",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-43344",
+      "pdb": "8vlu",
+      "resolution": 3.12,
+      "category": "Membrane & Transport",
+      "poster": "gallery/EMD-43344-morandi5-r2-poster.webp",
+      "video": "gallery/EMD-43344-morandi5-r2.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.8130000027743254,
+        0.8130000027743253,
+        0.8130000027743253
+      ],
+      "gt_color": "#a7957d",
+      "playback_rate": 0.8
+    },
+    {
+      "id": "EMD-26858",
+      "pdb": "7uxe",
+      "resolution": 3.38,
+      "category": "Nucleic Acid Binding",
+      "poster": "gallery/EMD-26858-morandi5-r3-poster.webp",
+      "video": "gallery/EMD-26858-morandi5-r3.mp4",
+      "frames": 144,
+      "loop_ms": 7800,
+      "density_voxel_spacing": [
+        0.95,
+        0.95,
+        0.9499999999999998
+      ],
+      "gt_color": "#8b8098",
+      "playback_rate": 0.8,
+      "density_isovalue_sigma": 3.0
+    }
+  ]
+}

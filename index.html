@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CryoAtlas: 17,809 curated cryo-EM map–model–sequence entries and a unified 618-target benchmark for atomic model building.">
+  <meta name="theme-color" content="#ffffff">
+  <title>CryoAtlas — Dataset &amp; Benchmark</title>
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+<main>
+  <header class="hero">
+    <h1><span class="title-line">CryoAtlas: A Large Curated Dataset</span> <span class="title-line">and Unified Benchmark for Cryo-EM Atomic Model Building</span></h1>
+    <p class="authors">
+      <span>Mingrui Li<sup>1</sup></span>,
+      <span>Minzhang Li<sup>1,2</sup></span>,
+      <span>Weichen Qin<sup>1</sup></span>,
+      <span>Yufan Xie<sup>1</sup></span>,
+      <span>Zhangzhi Xiong<sup>1</sup></span>,
+      <span>Sixian Shen<sup>1</sup></span>,
+      <a href="https://jiakai-zhang.github.io/">Jiakai Zhang<sup>1,2</sup></a>,
+      <span>Yuan Pei<sup>1</sup></span>,
+      <a href="https://www.yu-jingyi.com/">Jingyi Yu<sup>1</sup></a>
+    </p>
+    <p class="affiliations"><sup>1</sup> ShanghaiTech University &nbsp; <sup>2</sup> Cellverse Co., Ltd.</p>
+    <div class="links" aria-label="Project resources">
+      <a href="https://openreview.net/forum?id=qHJrv65ncA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h5"/></svg>OpenReview</a>
+      <a href="explore/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10M7.5 4.5l9 5"/></svg>3D Benchmark Explorer</a>
+      <a href="qa/"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 8a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16h.01"/></svg>Q&amp;A</a>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 14 18M19 3 5 21M8 3h4M12 21h4"/></svg>arXiv · coming soon</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5-6 7 6 7M16 5l6 7-6 7M14 3l-4 18"/></svg>Code · coming soon</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg>Dataset · coming soon</span>
+    </div>
+    <p class="tldr"><strong>TL;DR:</strong> A large dataset of paired cryo-EM density maps and protein models, curated through map–model alignment and quality filtering, and a unified benchmark for automated atomic model building from cryo-EM density maps, jointly evaluating structural accuracy, model-to-map fit, and stereochemical validity.</p>
+  </header>
+
+  <figure class="overview">
+    <img src="assets/overview.webp" width="1588" height="1116" alt="CryoAtlas overview: cryo-EM maps and sequences are used for model building; EMDB and PDB data undergo alignment and quality control; model quality is evaluated along three complementary dimensions.">
+  </figure>
+
+  <section id="at-a-glance">
+    <h2>CryoAtlas at a Glance</h2>
+    <div class="stats" aria-label="Dataset statistics">
+      <div><strong>17,809</strong><span>Curated entries</span></div>
+      <div><strong>16,657</strong><span>Training entries</span></div>
+      <div><strong>1,152</strong><span>Held-out test targets</span></div>
+      <div><strong>618</strong><span>Shared benchmark targets</span></div>
+    </div>
+  </section>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>Deep learning has accelerated automated atomic model building from cryo-EM maps, yet progress remains limited by the lack of large, high-quality datasets and standardized evaluation benchmarks. We address this gap by introducing CryoAtlas, a rigorously curated dataset and unified benchmark for density-guided atomic model building. By integrating and filtering EMDB and PDB entries (up to March 2026), CryoAtlas provides 17,809 map–model–sequence entries, including a curated 16,657-entry training split. From this resource, we construct a 618-target benchmark with a shared evaluation protocol that jointly assesses structural accuracy, model-to-map fit, and stereochemical validity. Using this framework, we benchmark state-of-the-art learning-based methods against Phenix and AlphaFold 3, comprehensively analyzing the impact of map resolution, sequence length, protein category and sequence identity on modeling accuracy. As a case study, retraining the ModelAngelo CNN component on CryoAtlas improves performance on the benchmark. CryoAtlas provides an open, reproducible foundation for future cryo-EM atomic model building research.</p>
+  </section>
+
+<section id="benchmark">
+    <h2>Unified benchmark</h2>
+    <h3 class="benchmark-subheading">Visual Examples</h3>
+    <figure class="comparison">
+      <img src="assets/comparison.webp" width="1588" height="916" alt="Figure 2: reference structures and predictions from CryoAtom, ModelAngelo, EMProt, E3-CryoFold, and AlphaFold 3 for EMD-14696 and EMD-36039." loading="lazy">
+    </figure>
+    <h3 class="benchmark-subheading">Benchmark Results</h3>
+    <div class="table-wrap" role="region" aria-label="Main benchmark results" tabindex="0">
+      <table class="results-table benchmark-table"><colgroup><col style="width:20%"><col span="6" style="width:13.333%"></colgroup>
+        
+        <thead><tr><th scope="col">Method</th><th scope="col">Geom ↑</th><th scope="col">Cα RMSD ↓</th><th scope="col">TM-score ↑</th><th scope="col">Seq. recall ↑</th><th scope="col">GT ↑</th><th scope="col">Map ↑</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">ModelAngelo</th><td>0.462</td><td><strong>1.014</strong></td><td>0.648</td><td>0.739</td><td>0.723</td><td>0.520</td></tr>
+          <tr><th scope="row">CryoAtom</th><td>0.537</td><td>1.198</td><td>0.763</td><td><strong>0.899</strong></td><td><strong>0.787</strong></td><td><strong>0.568</strong></td></tr>
+          <tr><th scope="row">EMProt</th><td>0.483</td><td>1.224</td><td>0.639</td><td>0.734</td><td>0.702</td><td>0.517</td></tr>
+          <tr><th scope="row">E3-CryoFold</th><td>0.165</td><td>3.278</td><td>0.739</td><td>0.622</td><td>0.539</td><td>0.305</td></tr>
+          <tr><th scope="row">AlphaFold 3</th><td><strong>0.598</strong></td><td>3.655</td><td><strong>0.813</strong></td><td>0.647</td><td>0.552</td><td>0.220</td></tr>
+          <tr><th scope="row">Phenix (24h)†</th><td>0.462</td><td>3.562</td><td>0.075</td><td>0.063</td><td>0.194</td><td>0.193</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">↑ Higher is better; ↓ lower is better. Bold indicates the best value in each column. Cα RMSD is in Å. † Phenix results are averaged over the 366 targets completed within 24 hours, rather than all 618 targets. Values reflect the initial manuscript and may be updated for the final release.</p>
+</section>
+
+  <section id="training">
+    <h2>Better data for model training</h2>
+    <p>Retraining ModelAngelo’s CNN on CryoAtlas, while keeping the official GNN checkpoint fixed, improves downstream benchmark performance. Under matched training conditions, it also outperforms the CNN trained on Cryo2StructData.</p>
+    <div class="table-wrap" role="region" aria-label="ModelAngelo training comparison" tabindex="0">
+      <table class="results-table training-table"><colgroup><col style="width:34%"><col span="3" style="width:22%"></colgroup>
+        <thead><tr><th scope="col">CNN checkpoint</th><th scope="col">Cα RMSD ↓</th><th scope="col">GT_score ↑</th><th scope="col">Map_score ↑</th></tr></thead>
+        <tbody><tr><th scope="row">Official</th><td>1.014</td><td>0.723</td><td>0.520</td></tr><tr><th scope="row">Cryo2StructData-trained</th><td>1.108</td><td>0.697</td><td>0.505</td></tr><tr><th scope="row">CryoAtlas-trained</th><td><strong>0.769</strong></td><td><strong>0.755</strong></td><td><strong>0.532</strong></td></tr></tbody>
+      </table>
+    </div>
+    <p class="note">The official checkpoint is an external reference; CryoAtlas and Cryo2StructData are directly comparable under matched training conditions.</p>
+  </section>
+
+  <section id="citation">
+    <h2>Citation</h2>
+    <p class="note">Provisional citation; publication details will be updated with the final manuscript.</p>
+    <pre><code>@misc{li2026cryoatlas,
+  title  = {CryoAtlas: A Large Curated Dataset and Unified Benchmark
+            for Cryo-EM Atomic Model Building},
+  author = {Li, Mingrui and Li, Minzhang and Qin, Weichen and Xie, Yufan
+            and Xiong, Zhangzhi and Shen, Sixian and Zhang, Jiakai
+            and Pei, Yuan and Yu, Jingyi},
+  year   = {2026},
+  url    = {https://openreview.net/forum?id=qHJrv65ncA}
+}</code></pre>
+  </section>
+</main>
+<footer>CryoAtlas · A curated foundation for cryo-EM atomic model building</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
