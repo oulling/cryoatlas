@@ -48,6 +48,7 @@ async function structure(path,label,color,alpha) {
   modelSpheres.push(modelStructure.cell.obj.data.boundary.sphere);
 }
 function focusModels() {
+  if(!modelSpheres.length) return;
   viewer.plugin.managers.camera.focusSpheres(modelSpheres,sphere=>sphere,{extraRadius:6,durationMs:0});
 }
 async function density() {
@@ -135,7 +136,6 @@ async function render(preserveCamera=false) {
   const emphasizeGT=referenceSelected||$('emphasize-gt').checked;
   $('gt-emphasis-control').hidden=referenceSelected||!$('show-gt').checked;
   document.querySelector('.gt-color').style.background=emphasizeGT?'#263238':'#8895a6';
-  const camera=preserveCamera?viewer.plugin.canvas3d?.camera.getSnapshot():null;
   status('Loading models…');
   scores();
   $('target-title').textContent=`${selected.id} · ${selected.pdb.toUpperCase()}`;
@@ -166,7 +166,6 @@ async function render(preserveCamera=false) {
       else missing.push(names[modelMethod]||modelMethod);
     }
     if($('show-gt').checked&&emphasizeGT) await structure(selected.assets.GT,'Reference (GT)',0x263238,1);
-    focusModels();
     if($('show-density').checked&&!reuseDensity) {
       status($('density-detail').value==='original'?'Loading original-resolution map…':$('density-detail').value==='high'?'Loading high-detail density…':'Loading density preview…');
       try { await density(); }
@@ -177,14 +176,12 @@ async function render(preserveCamera=false) {
       }
     }
     densityKey=key;
-    if(camera) viewer.plugin.managers.camera.setSnapshot(camera,0);
-    else focusModels();
     status(missing.length?`Prediction unavailable: ${missing.join(', ')}.`:'Ready',missing.length>0);
     const url=new URL(location.href); url.searchParams.set('entry',selected.id);url.searchParams.set('method',method);
     if(methods[1]) url.searchParams.set('compare',methods[1]);else url.searchParams.delete('compare');
     history.replaceState(null,'',url);
   } catch(error) { status(error.message,true); }
-  finally { lock(false); }
+  finally { if(!preserveCamera) focusModels(); lock(false); }
 }
 function list(query='') {
   const filtered=entries.filter(e=>`${e.id} ${e.pdb} ${e.category}`.toLowerCase().includes(query.toLowerCase().trim()));
@@ -224,6 +221,8 @@ async function init() {
       viewportShowExpand:false,viewportShowToggleFullscreen:false,viewportShowSelectionMode:false,viewportShowAnimation:false,
       volumeStreamingDisabled:true,viewportBackgroundColor:'#ffffff'
     });
+    // Layer changes must not reset orientation, zoom, clipping or camera target.
+    viewer.plugin.canvas3d.setProps({camera:{manualReset:true}});
     list();lock(false);
     const params=new URLSearchParams(location.search);
     if(colors[params.get('method')]) $('method').value=params.get('method');
