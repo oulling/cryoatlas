@@ -10,7 +10,7 @@ async function openViewer(id='EMD-36039'){
   galleryView.hidden=true;interactiveView.hidden=false;
   window.scrollTo({top:0,behavior:'instant'});
   try{
-    if(!loadingViewer){loadingViewer=(async()=>{await Promise.all([loadCss('https://cdn.jsdelivr.net/npm/molstar@5.12.0/build/viewer/molstar.css'),loadScript('https://cdn.jsdelivr.net/npm/molstar@5.12.0/build/viewer/molstar.js')]);await loadScript('explore.js?v=reference-pair-20261005');})();await loadingViewer;}
+    if(!loadingViewer){loadingViewer=(async()=>{await Promise.all([loadCss('https://cdn.jsdelivr.net/npm/molstar@5.12.0/build/viewer/molstar.css'),loadScript('https://cdn.jsdelivr.net/npm/molstar@5.12.0/build/viewer/molstar.js')]);await loadScript('explore.js?v=gt-emphasis-20261005');})();await loadingViewer;}
     else{await loadingViewer;const select=document.getElementById('entry');if(select.disabled){await new Promise((resolve,reject)=>{const start=Date.now();const timer=setInterval(()=>{if(!select.disabled){clearInterval(timer);resolve();}else if(Date.now()-start>60000){clearInterval(timer);reject(Error('The current target is still loading. Please try again shortly.'));}},100);});}select.value=id;select.dispatchEvent(new Event('change',{bubbles:true}));}
   }catch(error){document.getElementById('status').textContent=error.message;loadingViewer=null;}
 }

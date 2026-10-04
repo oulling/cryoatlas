@@ -18,6 +18,7 @@ function lock(value) {
   for(const button of document.querySelectorAll('[data-example]')) button.disabled=value;
   $('method-second').disabled=value;
   $('show-gt').disabled=value||[$('method').value,$('method-second').value].includes('Reference_only');
+  $('emphasize-gt').disabled=value||!$('show-gt').checked;
 }
 async function decompressed(path) {
   if(!bytesCache.has(path)) {
@@ -131,7 +132,9 @@ async function render(preserveCamera=false) {
   const methods=selectedMethods(), method=methods[0];
   const referenceSelected=methods.includes('Reference_only');
   if(referenceSelected) $('show-gt').checked=true;
-  document.querySelector('.gt-color').style.background=referenceSelected?'#263238':'#8895a6';
+  const emphasizeGT=referenceSelected||$('emphasize-gt').checked;
+  $('gt-emphasis-control').hidden=referenceSelected||!$('show-gt').checked;
+  document.querySelector('.gt-color').style.background=emphasizeGT?'#263238':'#8895a6';
   const camera=preserveCamera?viewer.plugin.canvas3d?.camera.getSnapshot():null;
   status('Loading models…');
   scores();
@@ -155,13 +158,14 @@ async function render(preserveCamera=false) {
     }
     modelRefs=[];
     modelSpheres=[];
-    if($('show-gt').checked) await structure(selected.assets.GT,'Reference (GT)',referenceSelected?0x263238:0x8895a6,referenceSelected?1:.4);
+    if($('show-gt').checked&&!emphasizeGT) await structure(selected.assets.GT,'Reference (GT)',0x8895a6,.4);
     const missing=[];
     for(const modelMethod of methods) {
       if(modelMethod==='Reference_only') continue;
       if(selected.assets[modelMethod]) await structure(selected.assets[modelMethod],names[modelMethod]||modelMethod,colors[modelMethod],1);
       else missing.push(names[modelMethod]||modelMethod);
     }
+    if($('show-gt').checked&&emphasizeGT) await structure(selected.assets.GT,'Reference (GT)',0x263238,1);
     focusModels();
     if($('show-density').checked&&!reuseDensity) {
       status($('density-detail').value==='original'?'Loading original-resolution map…':$('density-detail').value==='high'?'Loading high-detail density…':'Loading density preview…');
@@ -230,7 +234,7 @@ async function init() {
 $('search').addEventListener('input',()=>list($('search').value));
 $('entry').addEventListener('change',()=>choose($('entry').value));
 for(const id of ['method','method-second']) $(id).addEventListener('change',()=>render(true));
-for(const id of ['show-gt','show-density','density-detail']) $(id).addEventListener('change',()=>render(true));
+for(const id of ['show-gt','emphasize-gt','show-density','density-detail']) $(id).addEventListener('change',()=>render(true));
 for(const [id,offset] of [['previous',-1],['next',1]]) $(id).addEventListener('click',()=>{
   const options=[...$('entry').options].map(o=>o.value);const i=options.indexOf(selected?.id);
   choose(options[(i+offset+options.length)%options.length]);

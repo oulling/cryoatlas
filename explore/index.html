@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Explore 618 CryoAtlas v1 benchmark targets: compare protein models and experimental cryo-EM density in 3D.">
   <title>CryoAtlas · 3D Benchmark Explorer</title>
-  <link rel="stylesheet" href="explore.css?v=reference-pair-20261005">
-  <script defer src="gallery.js?v=reference-pair-20261005"></script>
+  <link rel="stylesheet" href="explore.css?v=gt-emphasis-20261005">
+  <script defer src="gallery.js?v=gt-emphasis-20261005"></script>
 </head>
 <body>
   <header class="page-header">
@@ -42,6 +42,7 @@
         <label class="second-method">Compare with<select id="method-second" disabled><option value="">None</option><option value="Reference_only">Reference (GT)</option><option value="CryoAtom">CryoAtom</option><option value="ModelAngelo">ModelAngelo</option><option value="EMProt">EMProt</option><option value="E3-CryoFold">E3-CryoFold</option><option value="AF3">AlphaFold 3</option></select></label>
         <div class="legend"><span><i id="prediction-color"></i><span id="prediction-name">CryoAtom</span></span><span id="second-legend" hidden><i id="second-prediction-color"></i><span id="second-prediction-name"></span></span><span><i class="gt-color"></i>Reference (GT)</span></div>
         <label class="checkbox"><input type="checkbox" id="show-gt" checked> Overlay reference model</label>
+        <label class="checkbox" id="gt-emphasis-control"><input type="checkbox" id="emphasize-gt"> Emphasize reference (GT)</label>
         <label class="checkbox"><input type="checkbox" id="show-density" checked> Show experimental density</label>
         <label>Density detail<select id="density-detail"><option value="preview">Fast overview · downsampled</option><option value="high">High detail · cropped EMDB</option><option value="original">Original grid · full EMDB map</option></select></label>
         <button id="load-original" class="reset original-button">Load original-resolution map</button>
@@ -57,7 +58,7 @@
     </section>
     <section class="about">
       <h2>About this visualization</h2>
-      <p>Explore CryoAtlas benchmark targets by overlaying up to two predicted protein models with the curated reference (GT) and experimental cryo-EM density. Each prediction has a distinct color; Selecting Reference (GT) in either model selector shows it in opaque dark gray. The optional GT overlay remains pale. All models share the map coordinate frame. AlphaFold 3 uses a whole-complex USalign alignment to GT, without per-chain fitting.</p>
+      <p>Explore CryoAtlas benchmark targets by overlaying up to two predicted protein models with the curated reference (GT) and experimental cryo-EM density. Each prediction has a distinct color; Selecting Reference (GT) in either model selector shows it in opaque dark gray. The optional GT overlay remains pale; Emphasize reference (GT) makes it clear while keeping both predictions selected. All models share the map coordinate frame. AlphaFold 3 uses a whole-complex USalign alignment to GT, without per-chain fitting.</p>
       <p>The default density preview loads quickly. Choose a cropped high-detail view or the original-resolution EMDB map for closer inspection, then adjust density threshold and opacity. Scores below the viewer report existing v1 benchmark results for each selected method. This visualization performs no additional prediction, refinement, or evaluation.</p>
       <p id="map-detail" class="map-detail" hidden></p>
     </section>
