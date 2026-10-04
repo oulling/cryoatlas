@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
-const colors = {CryoAtom:0xd4a123, ModelAngelo:0xb05ac6, EMProt:0x279a71, 'E3-CryoFold':0x397bb4, AF3:0xdb906c};
-const names = {AF3:'AlphaFold 3'};
+const colors = {Reference_only:0x263238, CryoAtom:0xd4a123, ModelAngelo:0xb05ac6, EMProt:0x279a71, 'E3-CryoFold':0x397bb4, AF3:0xdb906c};
+const names = {Reference_only:'Reference only', AF3:'AlphaFold 3'};
 let viewer, entries=[], selected, busy=false, volumeRefs=[], modelSpheres=[], modelRefs=[], densityKey='';
 const bytesCache = new Map();
 const highDensityCache = new Map();
@@ -16,6 +16,8 @@ function lock(value) {
   busy=value;
   for(const id of ['search','entry','method','method-second','previous','next','show-gt','show-density','density-detail','load-original','reset','contour','opacity']) $(id).disabled=value;
   for(const button of document.querySelectorAll('[data-example]')) button.disabled=value;
+  $('method-second').disabled=value||$('method').value==='Reference_only';
+  $('show-gt').disabled=value||$('method').value==='Reference_only';
 }
 async function decompressed(path) {
   if(!bytesCache.has(path)) {
@@ -99,6 +101,7 @@ async function density() {
     if(original) await changeVolume();
 }
 function selectedMethods() {
+  if($('method').value==='Reference_only') $('method-second').value='';
   if($('method-second').value===$('method').value) $('method-second').value='';
   for(const option of $('method-second').options) option.disabled=option.value===$('method').value;
   return [$('method').value,$('method-second').value].filter(Boolean);
@@ -119,11 +122,17 @@ function scores() {
   }
   $('second-score-row').hidden=methods.length<2;
   $('second-legend').hidden=methods.length<2;
+  $('prediction-name').parentElement.hidden=methods[0]==='Reference_only';
+  document.querySelector('.benchmark-heading').hidden=methods[0]==='Reference_only';
+  document.querySelector('.benchmark-strip').hidden=methods[0]==='Reference_only';
 }
 async function render(preserveCamera=false) {
   if(busy||!selected) return;
   lock(true);
   const methods=selectedMethods(), method=methods[0];
+  const referenceOnly=method==='Reference_only';
+  if(referenceOnly) $('show-gt').checked=true;
+  document.querySelector('.gt-color').style.background=referenceOnly?'#263238':'#8895a6';
   const camera=preserveCamera?viewer.plugin.canvas3d?.camera.getSnapshot():null;
   status('Loading models…');
   scores();
@@ -147,9 +156,10 @@ async function render(preserveCamera=false) {
     }
     modelRefs=[];
     modelSpheres=[];
-    if($('show-gt').checked) await structure(selected.assets.GT,'Reference (GT)',0x263238,1);
+    if($('show-gt').checked) await structure(selected.assets.GT,'Reference (GT)',referenceOnly?0x263238:0x8895a6,referenceOnly?1:.4);
     const missing=[];
     for(const modelMethod of methods) {
+      if(modelMethod==='Reference_only') continue;
       if(selected.assets[modelMethod]) await structure(selected.assets[modelMethod],names[modelMethod]||modelMethod,colors[modelMethod],1);
       else missing.push(names[modelMethod]||modelMethod);
     }
