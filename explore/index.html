@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Explore 618 CryoAtlas v1 benchmark targets: compare protein models and experimental cryo-EM density in 3D.">
   <title>CryoAtlas · 3D Benchmark Explorer</title>
-  <link rel="stylesheet" href="explore.css?v=15">
-  <script defer src="gallery.js?v=11"></script>
+  <link rel="stylesheet" href="explore.css?v=gt-clear-20261005">
+  <script defer src="gallery.js?v=gt-clear-20261005"></script>
 </head>
 <body>
   <header class="page-header">
@@ -57,7 +57,7 @@
     </section>
     <section class="about">
       <h2>About this visualization</h2>
-      <p>Explore CryoAtlas benchmark targets by overlaying up to two predicted protein models with the curated reference (GT) and experimental cryo-EM density. Each prediction has a distinct color; GT is gray. All models share the map coordinate frame. AlphaFold 3 uses a whole-complex USalign alignment to GT, without per-chain fitting.</p>
+      <p>Explore CryoAtlas benchmark targets by overlaying up to two predicted protein models with the curated reference (GT) and experimental cryo-EM density. Each prediction has a distinct color; GT is opaque dark gray. All models share the map coordinate frame. AlphaFold 3 uses a whole-complex USalign alignment to GT, without per-chain fitting.</p>
       <p>The default density preview loads quickly. Choose a cropped high-detail view or the original-resolution EMDB map for closer inspection, then adjust density threshold and opacity. Scores below the viewer report existing v1 benchmark results for each selected method. This visualization performs no additional prediction, refinement, or evaluation.</p>
       <p id="map-detail" class="map-detail" hidden></p>
     </section>

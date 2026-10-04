@@ -147,7 +147,7 @@ async function render(preserveCamera=false) {
     }
     modelRefs=[];
     modelSpheres=[];
-    if($('show-gt').checked) await structure(selected.assets.GT,'Reference (GT)',0x8895a6,.4);
+    if($('show-gt').checked) await structure(selected.assets.GT,'Reference (GT)',0x263238,1);
     const missing=[];
     for(const modelMethod of methods) {
       if(selected.assets[modelMethod]) await structure(selected.assets[modelMethod],names[modelMethod]||modelMethod,colors[modelMethod],1);
