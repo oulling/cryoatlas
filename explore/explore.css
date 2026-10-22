@@ -48,3 +48,27 @@ aside h2,.benchmark-heading h3{color:#294d75}
 .gallery-card-label strong{color:#294d75}
 @media(max-width:900px){aside{border-top-color:#c6d1dd}}
 
+
+/* Neutral controls for the 618-target interactive workspace. */
+#interactive-view{--blue:#4b5157;--line:#d5d6d7;--muted:#696d72}
+#interactive-view .selection{background:#f0f0ef;border-color:#d7d7d5}
+#interactive-view .selection>label,#interactive-view aside>label:not(.checkbox){color:#555b61}
+#interactive-view input[type=search],#interactive-view select{background-color:#fafafa;border-color:#c9cccf;color:#30353a}
+#interactive-view input[type=search]::placeholder{color:#85898d}
+#interactive-view button{background:transparent;border-color:#bfc3c7;color:#4a5056;box-shadow:none}
+#interactive-view button:hover{background:#e4e5e5;border-color:#969ca2;color:#24292e}
+#interactive-view .back-gallery{border-color:#c9cccf}
+#interactive-view .workspace{border-color:#c9cccf}
+#interactive-view .target-bar{background:#eaeceb;border-color:#c9cccf}
+#interactive-view .target-bar h2,#interactive-view aside h2,#interactive-view .benchmark-heading h3{color:#353b41}
+#interactive-view aside{background:#efefee;border-color:#c9cccf}
+#interactive-view .benchmark-heading,#interactive-view .benchmark-strip{background:#fafafa}
+#interactive-view .benchmark-strip dd{color:#30363b}
+#interactive-view .density-controls{border-color:#d1d3d4}
+#interactive-view .density-controls output{color:#50575e}
+#interactive-view .original-button{background:transparent;border-color:#aeb4b9;color:#40484f}
+#interactive-view #reset{background:#50575e;border-color:#50575e;color:#fff}
+#interactive-view #reset:hover{background:#363d43;border-color:#363d43}
+#interactive-view .archive-link{color:#555d65;text-decoration:underline;text-underline-offset:3px}
+#interactive-view button:focus-visible,#interactive-view a:focus-visible,#interactive-view input:focus-visible,#interactive-view select:focus-visible{outline-color:#747e87}
+
