@@ -219,7 +219,7 @@ async function init() {
     viewer=await molstar.Viewer.create('viewer',{
       layoutIsExpanded:false,layoutShowControls:false,layoutShowSequence:false,layoutShowLog:false,layoutShowLeftPanel:false,
       viewportShowExpand:false,viewportShowToggleFullscreen:false,viewportShowSelectionMode:false,viewportShowAnimation:false,
-      volumeStreamingDisabled:true,viewportBackgroundColor:'#ffffff'
+      volumeStreamingDisabled:true,viewportBackgroundColor:'#f5f5f5'
     });
     // Layer changes must not reset orientation, zoom, clipping or camera target.
     viewer.plugin.canvas3d.setProps({camera:{manualReset:true}});
@@ -251,3 +251,4 @@ $('contour').addEventListener('input',()=>{$('contour-value').textContent=Number
 $('opacity').addEventListener('input',()=>{$('opacity-value').textContent=Math.round(Number($('opacity').value)*100)+'%';});
 for(const id of ['contour','opacity']) $(id).addEventListener('change',changeVolume);
 init();
+
