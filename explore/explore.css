@@ -72,3 +72,9 @@ aside h2,.benchmark-heading h3{color:#294d75}
 #interactive-view .archive-link{color:#555d65;text-decoration:underline;text-underline-offset:3px}
 #interactive-view button:focus-visible,#interactive-view a:focus-visible,#interactive-view input:focus-visible,#interactive-view select:focus-visible{outline-color:#747e87}
 
+
+/* Blend the score summary with the viewer; reserve method colors for markers. */
+#interactive-view .benchmark-heading,#interactive-view .benchmark-strip{background:transparent}
+#interactive-view #score-method,#interactive-view #second-score-method{color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+#score-method::before,#second-score-method::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--method-color,#777);flex:none}
+

@@ -117,7 +117,7 @@ function scores() {
       dd.textContent=v==null?'—':keys[i]==='sequence_recall'?`${(v*100).toFixed(1)}%`:keys[i]==='ca_rmsd'?`${v.toFixed(3)} Å`:v.toFixed(3);
     }
     $(index?'second-score-method':'score-method').textContent=names[method]||method;
-    $(index?'second-score-method':'score-method').style.color='#'+colors[method].toString(16).padStart(6,'0');
+    $(index?'second-score-method':'score-method').style.setProperty('--method-color','#'+colors[method].toString(16).padStart(6,'0'));
     $(index?'second-prediction-name':'prediction-name').textContent=names[method]||method;
     $(index?'second-prediction-color':'prediction-color').style.background='#'+colors[method].toString(16).padStart(6,'0');
   }
@@ -251,4 +251,5 @@ $('contour').addEventListener('input',()=>{$('contour-value').textContent=Number
 $('opacity').addEventListener('input',()=>{$('opacity-value').textContent=Math.round(Number($('opacity').value)*100)+'%';});
 for(const id of ['contour','opacity']) $(id).addEventListener('change',changeVolume);
 init();
+
 
