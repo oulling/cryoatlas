@@ -3,11 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Questions about CryoAtlas: motivation, data curation, benchmark interpretation, limitations, and future directions.">
+  <meta name="description" content="CryoAtlas Q&A: why we built it, current limitations, future plans, AlphaFold and density-based modeling, protein identification, and drug discovery.">
+  <meta name="theme-color" content="#f5f5f5">
   <title>CryoAtlas · Q&amp;A</title>
   <link rel="stylesheet" href="../style.css?v=7">
   <style>
-    body{background:#fff}main,footer{max-width:900px}.qa-header{padding:30px 0 22px}.back{font-size:1.05rem}.qa-header h1{position:static;transform:none;width:auto;text-align:center;font-size:2.5rem;margin:30px 0 16px}.questions{margin:0 0 30px;padding-left:42px}.questions li{padding:18px 12px;border-bottom:1px solid var(--rule)}.questions li::marker{color:#315c8b;font-weight:600}.questions h2{font-family:inherit;font-weight:500;font-size:1.08rem;line-height:1.5;margin:0}footer{border:0;padding-top:14px}@media(max-width:700px){.qa-header h1{font-size:2rem}.questions{padding-left:30px}.questions li{padding:16px 5px}.questions h2{font-size:1rem}}
+    main,footer{max-width:900px}
+    .qa-header{padding:30px 0 26px}
+    .back{font-size:1rem}
+    .qa-header h1{position:static;transform:none;width:auto;text-align:center;font-size:2.5rem;margin:30px 0 12px}
+    .questions{margin:0 0 20px;padding-left:32px;background:transparent}
+    .questions>li{padding:25px 0 27px 8px;border-bottom:1px solid var(--rule);background:transparent;scroll-margin-top:24px}
+    .questions>li:first-child{border-top:1px solid var(--rule)}
+    .questions>li::marker{color:#315c8b;font-weight:600}
+    .questions h2{font-size:1.3rem;line-height:1.45;color:#315c8b;margin:0 0 14px}
+    .questions p{margin:0 0 14px;line-height:1.75;overflow-wrap:break-word}
+    .questions p:last-child{margin-bottom:0}
+    footer{border:0;padding-top:18px}
+    @media(max-width:700px){
+      .qa-header{padding:24px 0 20px}
+      .qa-header h1{font-size:2rem;margin-top:25px}
+      .questions{padding-left:24px}
+      .questions>li{padding:22px 0 24px 3px}
+      .questions h2{font-size:1.18rem}
+    }
   </style>
 </head>
 <body>
@@ -17,19 +36,35 @@
       <h1>CryoAtlas Q&amp;A</h1>
     </header>
     <ol class="questions" aria-label="CryoAtlas questions">
-      <li id="motivation"><h2>Why do we need CryoAtlas?</h2></li>
-      <li id="scope"><h2>What problems does CryoAtlas aim to address?</h2></li>
-      <li id="curation"><h2>How are the data selected and curated?</h2></li>
-      <li id="benchmark"><h2>How should the benchmark results be interpreted?</h2></li>
-      <li id="limitations"><h2>What are the current limitations of CryoAtlas?</h2></li>
-      <li id="af3-alignment"><h2>What does the reference-assisted alignment of AlphaFold 3 mean?</h2></li>
-      <li id="availability"><h2>When will the code and data be available?</h2></li>
-      <li id="future"><h2>What are the future directions for CryoAtlas?</h2></li>
-      <li id="pdb-quality"><h2>What quality issues can occur in raw PDB data?</h2></li>
-      <li id="emdb-cropping"><h2>Why do we crop EMDB density maps?</h2></li>
-      <li id="af3-comparison"><h2>How should AlphaFold 3 be compared with automated atomic model-building methods?</h2></li>
-      <li id="protein-identification"><h2>How can automated model building be extended to protein identification?</h2></li>
-      <li id="drug-discovery"><h2>How does CryoAtlas relate to drug discovery and development?</h2></li>
+      <li id="motivation">
+        <h2>Why did we build CryoAtlas?</h2>
+        <p>Researchers need reliable data to train model-building methods and a common benchmark to compare them fairly. Preparing map–structure–sequence pairs is time-consuming, and comparisons are difficult when studies use different test sets and metrics. CryoAtlas provides both a curated dataset and a shared evaluation protocol, making it easier to develop new methods and measure progress.</p>
+      </li>
+      <li id="limitations">
+        <h2>What are the limitations of the current release?</h2>
+        <p>The current release focuses on protein chains. We check the consistency of maps, structures, and sequences, but do not repair errors within deposited PDB models, such as incorrect residue assignments or stereochemical defects. Filtering and the selection of targets shared by all methods may favor easier or better-resolved examples. Some training and test entries also have high sequence similarity, which needs to be considered when assessing generalization.</p>
+      </li>
+      <li id="future">
+        <h2>What comes next for CryoAtlas?</h2>
+        <p>We plan to release cropped density maps ready for AI training. Removing excess space around each assembly would reduce storage and could make both training and inference more efficient, while retaining the molecular context and correct map–coordinate alignment. We also hope to extend the dataset and benchmark to protein–nucleic-acid complexes, ligands, and, where suitable data are available, different conformational states. On the evaluation side, we aim to develop algorithms that handle incomplete models and complex assemblies more reliably.</p>
+      </li>
+      <li id="af3-comparison">
+        <h2>How do AlphaFold and density-based model building complement each other?</h2>
+        <p>An AlphaFold model can give researchers a useful starting structure with a plausible fold and good local geometry. It still needs to be fitted to the experimental map, checked and rebuilt in tools such as Coot, and refined in Phenix. Even when the overall fold is correct, domains or subunits may be misplaced, and loops or side chains may not match the observed density. Correcting these differences can still require considerable expert effort.</p>
+        <p>Methods such as ModelAngelo and CryoAtom2 build more directly from the density, helping recover the conformation present in the experiment. Their main difficulty is weak or poorly resolved density, where they may leave gaps or make tracing errors. Their models also need refinement to improve geometry.</p>
+        <p>A useful comparison should consider the accuracy and completeness of the resulting model, its fit to the map, and how much manual work remains. Future workflows could combine AlphaFold&#x27;s structural priors with density-based building, with agents helping coordinate fitting, validation, and rebuilding.</p>
+      </li>
+      <li id="protein-identification">
+        <h2>Why is protein identification important, and how can CryoAtlas help?</h2>
+        <p>Protein identification (PI) determines which proteins occupy the density in a cryo-EM map when their sequences are not known in advance. It becomes particularly important for samples purified from native sources, co-purified complexes, and in situ studies, where the molecular composition may be uncertain. In these settings, identifying the components is essential to understanding the structure and its biological role.</p>
+        <p>ModelAngelo and CryoAtom provide useful starting points: they infer residue-type probabilities from density, convert them into HMM profiles, and search protein sequence databases. The identified sequences then guide further model building.</p>
+        <p>CryoAtlas provides paired maps, atomic structures, and sequence annotations that could support training and evaluation for PI. Its known protein identities and chain assignments can serve as reference labels, while target sequences are withheld from model inputs during evaluation. Adding defined candidate databases and identification-specific metrics would allow tests of protein identity and chain assignment across different map qualities and levels of sequence similarity.</p>
+      </li>
+      <li id="drug-discovery">
+        <h2>How can CryoAtlas support structure-based drug discovery?</h2>
+        <p>Cryo-EM structures help researchers understand where compounds bind, how they interact with a target, and which protein conformations they stabilize. These details can guide compound design and help explain differences in activity or selectivity. Obtaining them requires accurate atomic models, including reliable placement of residues around the binding site.</p>
+        <p>CryoAtlas supports this step by providing data to train automated model-building methods and a common benchmark to assess their accuracy and agreement with experimental density. Better methods could reduce manual rebuilding and make structural information more readily available for drug-discovery studies. The current release evaluates protein reconstruction; extending it to ligands and binding-site accuracy would make the connection to drug design more direct.</p>
+      </li>
     </ol>
   </main>
   <footer>CryoAtlas v1 · <a href="../">Project page</a></footer>
