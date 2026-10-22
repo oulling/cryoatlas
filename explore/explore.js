@@ -1,6 +1,6 @@
 'use strict';
 const $ = id => document.getElementById(id);
-const colors = {Reference_only:0x263238, CryoAtom:0xd4a123, ModelAngelo:0xb05ac6, EMProt:0x279a71, 'E3-CryoFold':0x397bb4, AF3:0xdb906c};
+const colors = {Reference_only:0x263238, CryoAtom2:0xd4a123, ModelAngelo:0xb05ac6, EMProt:0x279a71, 'E3-CryoFold':0x397bb4, AF3:0xdb906c};
 const names = {Reference_only:'Reference (GT)', AF3:'AlphaFold 3'};
 let viewer, entries=[], selected, busy=false, volumeRefs=[], modelSpheres=[], modelRefs=[], densityKey='';
 const bytesCache = new Map();
