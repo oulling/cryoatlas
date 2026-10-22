@@ -68,7 +68,7 @@
         <tbody>
           <tr><th scope="row">ModelAngelo</th><td>0.462</td><td><strong>1.014</strong></td><td>0.648</td><td>0.739</td><td>0.723</td><td>0.520</td></tr>
           <tr><th scope="row">CryoAtom2</th><td>0.537</td><td>1.198</td><td>0.763</td><td><strong>0.899</strong></td><td><strong>0.787</strong></td><td><strong>0.568</strong></td></tr>
-          <tr><th scope="row">EMProt</th><td>0.483</td><td>1.224</td><td>0.639</td><td>0.734</td><td>0.702</td><td>0.517</td></tr>
+          <tr><th scope="row">EMProt</th><td>0.484</td><td>1.224</td><td>0.639</td><td>0.734</td><td>0.702</td><td>0.517</td></tr>
           <tr><th scope="row">E3-CryoFold</th><td>0.165</td><td>3.278</td><td>0.739</td><td>0.622</td><td>0.539</td><td>0.305</td></tr>
           <tr><th scope="row">AlphaFold 3</th><td><strong>0.598</strong></td><td>3.655</td><td><strong>0.813</strong></td><td>0.647</td><td>0.552</td><td>0.220</td></tr>
           <tr><th scope="row">Phenix (24h)†</th><td>0.462</td><td>3.562</td><td>0.075</td><td>0.063</td><td>0.194</td><td>0.193</td></tr>
@@ -83,7 +83,7 @@
     <p>Retraining ModelAngelo’s CNN on CryoAtlas, while keeping the official GNN checkpoint fixed, improves downstream benchmark performance. Under matched training conditions, it also outperforms the CNN trained on Cryo2StructData.</p>
     <div class="table-wrap" role="region" aria-label="ModelAngelo training comparison" tabindex="0">
       <table class="results-table training-table"><colgroup><col style="width:34%"><col span="3" style="width:22%"></colgroup>
-        <thead><tr><th scope="col">CNN checkpoint</th><th scope="col">Cα RMSD ↓</th><th scope="col">GT_score ↑</th><th scope="col">Map_score ↑</th></tr></thead>
+        <thead><tr><th scope="col">CNN checkpoint</th><th scope="col">Cα RMSD ↓</th><th scope="col">GT Score ↑</th><th scope="col">Map Score ↑</th></tr></thead>
         <tbody><tr><th scope="row">Official</th><td>1.014</td><td>0.723</td><td>0.520</td></tr><tr><th scope="row">Cryo2StructData-trained</th><td>1.108</td><td>0.697</td><td>0.505</td></tr><tr><th scope="row">CryoAtlas-trained</th><td><strong>0.769</strong></td><td><strong>0.755</strong></td><td><strong>0.532</strong></td></tr></tbody>
       </table>
     </div>
